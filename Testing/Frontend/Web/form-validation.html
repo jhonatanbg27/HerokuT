@@ -1,0 +1,288 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+<title>Services</title>
+<link rel="icon" href="logo_astra.ico" type="image/x-icon">
+<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/plugins/sweetalert/sweetalert.css"/>
+
+<!-- Bootstrap Material Datetime Picker Css -->
+<link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+<!-- Bootstrap Select Css -->
+<link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+
+<!-- Custom Css -->
+<link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+
+<body class="theme-purple">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="logo_astra.ico" width="48" height="48" alt="My-E"></div>
+        <p>Please Wait</p>
+    </div>
+</div>
+
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+
+ <!-- PAGINA DESDE LA PERSPECTIVA DEL ADMINSTRADOR -->
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+        <div class="navbar-brand">
+            <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
+            <a href="index.html"><img src="logo_astra.ico" width="25" alt="Aero"><span class="m-l-10">My-E</span></a>
+        </div>
+        <div class="menu">
+            <ul class="list">
+                <li>
+                    <div class="user-info">
+                        <a class="image" href="profile.html"><img src="assets/images/profile_av.jpg" alt="User"></a>
+                        <div class="detail">
+                            <h4>Ernesto</h4>
+                            <small>Administrator</small>                        
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Home</span></a></li>
+                <li><a href="profile.html"><i class="zmdi zmdi-account"></i><span>My Profile</span></a></li>
+                <li><a href="Manage-Engineer-Accounts.html"><i class="zmdi zmdi-face"></i><span>Manage Engineer Accounts</span></a></li>
+                <li><a href="see_engineer.html"><i class="zmdi zmdi-map"></i><span>See Engineers's Location</span></a></li>
+                <li><a href="sign-in.html"><i class="zmdi zmdi-play-for-work"></i><span>Log Out</span></a></li>
+            </ul>
+        </div>
+    </aside>
+
+<!-- Right Sidebar -->
+
+
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Services</h2>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+              
+            </div>
+        </div>
+<!--Popup de Entidades-->
+<div class="modal fade" id="popupIngenieros" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="pricing-title">Seleccionar Entidad</h5>
+            </div>
+            <div class="modal-body">
+				<div class="container-fluid">
+					<div class="row clearfix">
+						<div class="body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="bg-purple">  
+                                            <th>Sel.</th>
+                                            <th>Nombre de Entidad</th>
+                                            <th>Dirección</th>
+                                            <th>Numero de Contacto</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaListaIng">
+                                                                                             
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+						
+					</div>
+				</div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" onclick="SelIngeniero()" class="btn btn-danger waves-effect" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popupHospital" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="pricing-title">Seleccionar Entidad</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <!--<div class="col-lg-6 col-md-12">-->
+                                
+                            <!--</div>-->
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="bg-purple">  
+                                                <th>Sel.</th>
+                                                <th>Nombre de Entidad</th>
+                                                <th>Dirección</th>
+                                                <th>Numero de Contacto</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tablaListaHosp">
+                                                                                                 
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="SelHospital()" class="btn btn-danger waves-effect" data-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="popupEjemplares" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="pricing-title">Seleccionar Entidad</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row clearfix">
+                                <!--<div class="col-lg-6 col-md-12">-->
+                                    
+                                <!--</div>-->
+                                <div class="body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="bg-purple">  
+                                                    <th>Sel.</th>
+                                                    <th>Nombre de Entidad</th>
+                                                    <th>Dirección</th>
+                                                    <th>Numero de Contacto</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tablaListaEjem">
+                                                                                                     
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="SelEjemplar()" class="btn btn-danger waves-effect" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div class="container-fluid">
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Add</strong> Service</h2>
+                           
+                        </div>
+                        <div class="body">
+                           
+                                <div>                                   
+                                            <input type="text" class="form-control"  placeholder="Nombre de ingeniero" id="nombreIngeniero" disabled > 
+                                     <div>
+                                        <tr>                                                                                                                                
+                                            <td>
+                                                    <button type="button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#popupIngenieros" >Sel. Ingeniero</button>
+                                            </td>     <!-- Boton que registra el servicio --> 
+                                           </tr>
+                                     </div>                                 
+                                 </div>
+                                 <br>
+                                 <div>                                   
+                                            <input type="text" class="form-control"  placeholder="Nombre de ejemplar" id="nombreEjemplar" disabled > 
+                                     <div>
+                                            <tr>                                                                                                                                
+                                                <td>
+                                                        <button type="button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#popupEjemplares" >Sel. Ejemplar</button>
+                                                </td>     
+                                            </tr>
+                                     </div>
+                                  
+                                 </div>                             
+                                 <br>
+                                <div>                                   
+                                    <input type="text" class="form-control"  placeholder="Nombre de hospital" id="nombreHospital" disabled > 
+                                    <div>
+                                        <tr>                                                                                                                                
+                                            <td>
+                                                    <button type="button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#popupHospital" >Sel. Hospital</button>
+                                            </td> 
+                                        </tr>
+                                    </div>                                 
+                                </div>
+                                     <br>
+                                    <input type="date" class="form-control"  id="fechaGenerada" > 
+                                    <br>
+                                    <input type="date" class="form-control" id="fechaEjecutada" >                                                           
+                               
+                               <div class="container-fluid">                                                                                                                                                                             
+                                    <td><button class="btn bg-purple btn-primary waves-effect" onclick="RegistrarOrden()" data-type="success">Submit</button></td>     <!-- Boton que registra el servicio --> 
+                               </div> 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Jquery Core Js --> 
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+
+<script src="assets/plugins/jquery-validation/jquery.validate.js"></script> <!-- Jquery Validation Plugin Css --> 
+<script src="assets/plugins/jquery-steps/jquery.steps.js"></script> <!-- JQuery Steps Plugin Js --> 
+<script src="assets/plugins/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js --> 
+<script src="assets/plugins/momentjs/moment.js"></script> <!-- Moment Plugin Js --> 
+
+<!-- Bootstrap Material Datetime Picker Plugin Js -->
+<script src="assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js --> 
+<script src="assets/js/pages/forms/form-validation.js"></script> 
+<script src="assets/js/pages/ui/sweetalert.js"></script>
+<script src="assets/js/pages/forms/basic-form-elements.js"></script>
+<script src="../scripts/insertarOrden.js"></script>
+</body>
+</html>

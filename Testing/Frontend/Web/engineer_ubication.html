@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+<title>Engineers Ubication</title>
+<link rel="icon" href="logo_astra.ico" type="image/x-icon"> <!-- Favicon-->
+<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/>
+<link rel="stylesheet" href="assets/plugins/charts-c3/plugin.css"/>
+
+<link rel="stylesheet" href="assets/plugins/morrisjs/morris.min.css" />
+
+<!-- Custom Css -->
+<link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+
+<body class="theme-purple">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img class="zmdi-hc-spin" src="logo_astra.ico" width="48" height="48" alt="My-E"></div>
+            <p>Please Wait</p>
+        </div>
+</div>
+    
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+ <!-- PAGINA DESDE LA PERSPECTIVA DEL ADMINISTRADOR -->
+
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <div class="navbar-brand">
+        <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
+        <a href="index.html"><img src="logo_astra.ico" width="25" alt="Aero"><span class="m-l-10">My-E</span></a>
+    </div>
+    <div class="menu">
+        <ul class="list">
+            <li>
+                <div class="user-info">
+                    <a class="image" href="profile.html"><img src="assets/images/profile_av.jpg" alt="User"></a>
+                    <div class="detail">
+                        <h4>Ernesto</h4> <!--Nombre del Usuario logeado-->
+                        <small>Administrator</small> <!--Cargo que ejerce dicho Usuario-->                       
+                    </div>
+                </div>
+            </li>
+            <li class="active open"><a href="index.html"><i class="zmdi zmdi-home"></i><span>Home</span></a></li>
+            <li><a href="profile.html"><i class="zmdi zmdi-account"></i><span>My Profile</span></a></li>
+            <li><a href="Manage-Engineer-Accounts.html"><i class="zmdi zmdi-face"></i><span>Manage Engineer Accounts</span></a></li>
+            <li><a href="see_engineer.html"><i class="zmdi zmdi-map"></i><span>See Engineers's Location</span></a></li>
+            <li><a href="sign-in.html"><i class="zmdi zmdi-play-for-work"></i><span>Log Out</span></a></li>
+        </ul>
+    </div>
+</aside>
+
+
+<!-- Main Content -->
+
+<section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Maps</h2> 
+                        <h5>Ernesto Sanchez</h4> <!--Aqui va el nombre del ingeniero-->
+                        
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="container-fluid"> 
+                
+                <!-- Basic Example -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2> <strong>Where's</strong> my Engineer </h2>
+                            </div>
+                            <div class="body">
+                                <div id="map" ></div>  <!-- Mapa que deberia mostrar al Ingeniero con sus latitud y longitud -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+          height: 750px;  /* The height is 750 pixels */
+          width: 100%;  /* The width is the width of the web page */
+         }
+      </style>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+          // The location of the engineer
+          var engineerposition = {lat: -12.073789, lng: -77.080516};//con el axios obtener el dato por id, llama al valor latitud y longitud
+          // The map, centered at the engineer
+          var map = new google.maps.Map(
+              document.getElementById('map'), {zoom: 17, center: engineerposition});
+          // The marker, positioned at the engineer
+          var marker = new google.maps.Marker({position: engineerposition, map: map});
+        }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa3xxbDS1aYG3MjnfiPntmP3Glf5hsCKs&callback=initMap">
+            </script>
+
+    
+<!-- Jquery Core Js --> 
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+<script src="assets/bundles/jvectormap.bundle.js"></script> <!-- JVectorMap Plugin Js -->
+<script src="assets/bundles/sparkline.bundle.js"></script> <!-- Sparkline Plugin Js -->
+<script src="assets/bundles/c3.bundle.js"></script>
+
+
+<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="assets/js/pages/index.js"></script>
+
+</body>
+</html>
